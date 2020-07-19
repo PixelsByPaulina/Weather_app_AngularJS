@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="weatherApp" ng-init="">
+<html ng-app="weatherApp" ng-cloak>
 
 
   <head>
@@ -21,12 +21,13 @@
     <button ng-click="findCity()">Ieškoti icona</button>
     <button ng-click="findAutomatic()">Naudoti buvimo vietą</button>
 
+    <br>
     {{writtenCity}}
     {{selectedCity}}
-
+    <br>
 
     <!-- Shows current weather -->
-
+    {{currentUrl}}
 
 
 

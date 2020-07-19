@@ -4,3 +4,7 @@ body {
   background-color: blanchedalmond;
   font-family: "Playfair Display", serif;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
