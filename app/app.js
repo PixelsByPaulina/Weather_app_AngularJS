@@ -1,18 +1,19 @@
-'use strict';
-
-// Declare app level module which depends on views, and core components
-angular.module("WeatherApp", [
-  'ngRoute',
-  //'myApp.view1',
-  //'myApp.view2',
-  'myApp.version'
-]);
+angular.module("weatherApp", [])
+    .controller("weatherController", ["$scope", function($scope) {
+        var cityName = this;
 
 
+        var writtenName = "";
+        var selectedCity = "";
+
+        cityName.findCity = function() {
+            selectedCity = writtenName;
+        };
+
+        cityName.findAutomatic = function() {
+            selectedCity = "Radau";
+        };
 
 
-/*config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);*/
+    }]);
