@@ -1,19 +1,16 @@
 angular.module("weatherApp", [])
-    .controller("weatherController", ["$scope", function($scope) {
-        var cityName = this;
+    .controller("weatherController", function($scope) {
+        $scope.writtenCity;
 
-
-        var writtenName = "";
-        var selectedCity = "";
-
-        cityName.findCity = function() {
-            selectedCity = writtenName;
+        $scope.findCity = function() {
+            $scope.selectedCity = $scope.writtenCity;
         };
 
-        cityName.findAutomatic = function() {
-            selectedCity = "Radau";
+        $scope.findAutomatic = function() {
+            $scope.selectedCity = "Radau";
         };
 
 
 
-    }]);
+
+    });

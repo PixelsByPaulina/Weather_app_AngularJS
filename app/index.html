@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="weatherApp">
+<html ng-app="weatherApp" ng-init="">
 
 
   <head>
@@ -13,15 +13,15 @@
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
 
-  <body>
+  <body ng-controller="weatherController as cityName">
     <!-- Takes user input or detects city automatically -->
     <input type="text"
            placeholder="Pasirinkite miestą"
-           ng-model="writtenName">
-    <button ng-click="cityName.findCity()">Ieškoti icon</button>
-    <button ng-click="cityName.findAutomatic()">Naudoti buvimo vietą</button>
+           ng-model="writtenCity">
+    <button ng-click="findCity()">Ieškoti icona</button>
+    <button ng-click="findAutomatic()">Naudoti buvimo vietą</button>
 
-    {{writtenName}}
+    {{writtenCity}}
     {{selectedCity}}
 
 
