@@ -5,9 +5,9 @@ angular.module("weatherApp", [])
         // CITY SELECTION
         $scope.writtenCity = "";
         $scope.selectedCity = "Klaipėda";
-        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&appid=61831ea54b831b0ea5482f37d73f171d";
+        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&lang=lt&appid=61831ea54b831b0ea5482f37d73f171d";
         var url = "https://api.openweathermap.org/data/2.5/forecast?";
-        var APIkey = "&appid=61831ea54b831b0ea5482f37d73f171d";
+        var APIkey = "&lang=lt&appid=e8fc2f868613a27300b9402dac4a1de9";
 
         // CREATE API LINK WITH BY CITY NAME
         $scope.findCity = function() {
@@ -35,14 +35,27 @@ angular.module("weatherApp", [])
             })
                 .then(function (data, status) {
                     if(data.data.cod !== "200") {
-                        $scope.temperature = "Miestas nerastas";
+                        $scope.cityName = "Miestas nerastas";
                     }
                     else {
+                        // CURRENT WEATHER
+                        $scope.cityName = data.data.city.name;
                         $scope.date = data.data.list[0].dt;
                         $scope.temperature = Math.round(data.data.list[0].main.temp - 273.15);
                         $scope.feelsLike = Math.round(data.data.list[0].main.feels_like - 273.15);
-                        $scope.humidity = data.data.list[0].main.humidity + " %";
-                        $scope.wind = data.data.list[0].wind.speed + " m/s";
+                        $scope.wind = data.data.list[0].wind.speed;
+                        $scope.description = data.data.list[0].weather[0].description;
+                        $scope.icon = "https://openweathermap.org/img/wn/" +
+                            data.data.list[0].weather[0].icon +
+                            ".png";
+
+                        // FUTURE WEATHER
+                        $scope.futureDate = data.data.list[1].dt;
+                        $scope.futureTemperature = Math.round(data.data.list[1].main.temp - 273.15);
+                        $scope.futureWind = data.data.list[1].wind.speed;
+                        $scope.futureIcon = "https://openweathermap.org/img/wn/" +
+                            data.data.list[1].weather[0].icon +
+                            ".png";
                     }
                 })
                 .error(function (data, status) {
