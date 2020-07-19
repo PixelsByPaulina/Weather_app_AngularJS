@@ -11,18 +11,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="style.css">
   <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
-  <div>
-    <h1>This is the app:</h1>
-    <app-root></app-root>
+
+<body ng-app="weatherApp">
+  <div ng-model="citySelection">
+    <h3>Select your city:</h3>
+  </div>
+  <div ng-model="currentWeather">
+    <h1>It's hot now!</h1>
   </div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script> -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
