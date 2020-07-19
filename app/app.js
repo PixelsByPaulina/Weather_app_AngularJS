@@ -4,9 +4,8 @@ angular.module("weatherApp", [])
     .controller("weatherController", function($scope, $http) {
         // CITY SELECTION
         $scope.writtenCity = "";
-        $scope.selectedCity = "Vilnius";
-        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Kaunas&appid=61831ea54b831b0ea5482f37d73f171d";
-
+        $scope.selectedCity = "Klaipėda";
+        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&appid=61831ea54b831b0ea5482f37d73f171d";
         var url = "https://api.openweathermap.org/data/2.5/forecast?";
         var APIkey = "&appid=61831ea54b831b0ea5482f37d73f171d";
 
@@ -14,8 +13,8 @@ angular.module("weatherApp", [])
         $scope.findCity = function() {
             // IF INPUT FIELD IS NOT EMPTY, ACCEPT THE VALUE
             if ($scope.writtenCity !== "") {
-                $scope.selectedCity = "q=" + $scope.writtenCity;
-                $scope.currentUrl = url + $scope.selectedCity + APIkey;
+                $scope.selectedCity = $scope.writtenCity;
+                $scope.currentUrl = url + "q=" + $scope.selectedCity + APIkey;
             }
             $scope.getWeather();
         };
@@ -39,12 +38,21 @@ angular.module("weatherApp", [])
                         $scope.temperature = "Miestas nerastas";
                     }
                     else {
-                        $scope.temperature = data.data;
+                        $scope.date = data.data.list[0].dt;
+                        $scope.temperature = Math.round(data.data.list[0].main.temp - 273.15);
+                        $scope.feelsLike = Math.round(data.data.list[0].main.feels_like - 273.15);
+                        $scope.humidity = data.data.list[0].main.humidity + " %";
+                        $scope.wind = data.data.list[0].wind.speed + " m/s";
                     }
                 })
                 .error(function (data, status) {
                     $scope.temperature = "Error";
                 });
+        };
+
+        // TRIGGERS TO SHOW DEFAULT WEATHER ON PAGE LOAD
+        $scope.init = function() {
+            $scope.getWeather();
         };
 
 

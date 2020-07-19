@@ -13,7 +13,7 @@
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
 
-  <body ng-controller="weatherController as cityName">
+  <body ng-controller="weatherController" data-ng-init="init()">
     <!-- Takes user input or detects city automatically -->
     <input type="text"
            placeholder="Pasirinkite miestą"
@@ -21,15 +21,24 @@
     <button ng-click="findCity()">Ieškoti icona</button>
     <button ng-click="findAutomatic()">Naudoti buvimo vietą</button>
 
-    <br>
-    {{writtenCity}}
-    {{selectedCity}}
-    <br>
+    <!-- SHOWS CURRENT WEATHER -->
+    <div class="today-weather">
+      {{selectedCity}}
+      <br>
+      {{date | date : format : timezone}}
+      <br>
+      {{temperature}}
+      <br>
+      {{feelsLike}}
+      <br>
+      {{humidity}}
+      <br>
+      {{wind}}
+    </div>
 
-    <!-- Shows current weather -->
-    {{currentUrl}}
-    <br>
-    {{temperature}}
+    <div class="future-weather">
+
+    </div>
 
 
 
