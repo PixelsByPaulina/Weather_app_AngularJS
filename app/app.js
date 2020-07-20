@@ -6,6 +6,7 @@ angular.module("weatherApp", [])
         $scope.writtenCity = "";
         $scope.selectedCity = "Klaipėda";
 <<<<<<< HEAD
+<<<<<<< HEAD
         $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&lang=lt&appid=48507c7efbe2a4ca1b59a199ea479b46";
         var url = "https://api.openweathermap.org/data/2.5/forecast?";
         var APIkey = "&lang=lt&appid=48507c7efbe2a4ca1b59a199ea479b46";
@@ -14,6 +15,11 @@ angular.module("weatherApp", [])
         var url = "https://api.openweathermap.org/data/2.5/forecast?";
         var APIkey = "&appid=61831ea54b831b0ea5482f37d73f171d";
 >>>>>>> parent of 6905f62... Siek tiek isvaizdos
+=======
+        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&lang=lt&appid=61831ea54b831b0ea5482f37d73f171d";
+        var url = "https://api.openweathermap.org/data/2.5/forecast?";
+        var APIkey = "&lang=lt&appid=e8fc2f868613a27300b9402dac4a1de9";
+>>>>>>> parent of 3801d27... Nebeuzsiloadina
 
         // CREATE API LINK WITH BY CITY NAME
         $scope.findCity = function() {
@@ -46,7 +52,6 @@ angular.module("weatherApp", [])
                     else {
 <<<<<<< HEAD
                         // CURRENT WEATHER
-                        $scope.cityName2 = $scope.selectedCity;
                         $scope.cityName = data.data.city.name;
 =======
 >>>>>>> parent of 6905f62... Siek tiek isvaizdos
@@ -63,9 +68,9 @@ angular.module("weatherApp", [])
         };
 
         // TRIGGERS TO SHOW DEFAULT WEATHER ON PAGE LOAD
-        /*$scope.init = function() {
+        $scope.init = function() {
             $scope.getWeather();
-        };*/
+        };
 
 
 

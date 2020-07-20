@@ -36,6 +36,8 @@ body {
   border-radius: 30px;
   color: white;
   background-color: #db6504;
+  position: relative;
+  left: -50px;
   padding: 0;
   margin: 0;
 }
