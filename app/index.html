@@ -38,7 +38,7 @@
 
 
 
-      <!-- SHOWS CURRENT WEATHER -->
+      <!-- SHOWS A CURRENT WEATHER -->
       <div class="today-weather">
         <div class="today-main">
           <div id="city-name">{{cityName}}</div>
@@ -54,17 +54,35 @@
         </div>
       </div>
 
+      <!--{{currentUrl}}-->
 
-
-      <!-- SHOWS FUTURE WEATHER -->
-      <div class="future-weather">
+      <!-- SHOWS A WEATHER FORECAST FOR THE NEXT 5 DAYS -->
+      <div class="future-container">
+        <!-- DATE -->
         <div class="future-info"
-             id="f-date">{{futureDate * 1000 | date: "yyyy-MM-dd"}}</div>
-        <img ng-src={{futureIcon}}
+             id="future-date"
+             ng-repeat="date in futureData">
+          {{ date.dt * 1000 | date: "yyyy-MM-dd" }}
+        </div>
+        <!-- ICON -->
+        <img ng-repeat="icon in futureData"
+             ng-src={{iconHttp}}{{icon.weather[0].icon}}{{png}}
              class="future-info"
-             id="f-weather-icon"/>
-        <div class="future-info"><p>{{futureTemperature}} &#176;C</p></div>
-      </div>
+             id="future-icon"/>
+        <!-- TEMPERATURE -->
+        <div class="future-info"
+             id="future-temp"
+             ng-repeat="temp in futureData">
+          <p>{{ temp.temp.day }} &#176;C</p>
+        </div>
+        <!-- WIND -->
+        <div class="future-info"
+             id="future-wind"
+             ng-repeat="wind in futureData">
+          <p>{{ wind.wind_speed }} m/s</p>
+        </div>
+
+
     </div>
 
 

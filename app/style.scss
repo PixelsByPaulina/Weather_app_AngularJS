@@ -27,12 +27,12 @@ body {
 .container {
   background-color: rgba(0, 0, 0, 0.3);
   width: 500px;
-  min-width: 400px;
   margin-top: 70px;
   border-radius: 10px;
 }
 
 
+// SEARCH ROW STYLE
 .search {
   width: 100%;
   padding: 20px 30px;
@@ -97,6 +97,7 @@ body {
 }
 
 
+// CURRENT WEATHER CONTAINER STYLE
 .today-weather {
   text-align: center;
   padding: 20px;
@@ -114,7 +115,7 @@ body {
   #temperature {
     font-size: 44px;
     font-weight: 500;
-
+    margin-top: -50px;
   }
   #weather-icon {
     width: 50px;
@@ -132,8 +133,40 @@ body {
 }
 
 
-.future-weather {
+// FUTURE WEATHER CONTAINER STYLE
+.future-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 10px 10px;
+  text-align: center;
+}
+
+.future-info {
+  flex: 1 0 20%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+#future-date {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+#future-icon {
+  margin: 5px 20px 0px 20px;
+  max-width: 50px;
+}
+
+#future-temp {
+  font-weight: 500;
+  margin-top: -15px;
+}
+
+#future-wind {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  margin-top: -25px;
 }
