@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="weatherApp" ng-cloak>
 
-
   <head>
     <meta charset="utf-8">
     <title>Weather App | AngularJS</title>
@@ -15,26 +14,34 @@
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
 
+
+
   <body ng-controller="weatherController" data-ng-init="init()">
-    <!-- Takes user input or detects city automatically -->
+    <!-- TAKES USER INPUT or DETECTS CITY AUTOMATICALLY -->
     <div class="container">
       <div class="search">
-        <input type="text"
-               placeholder="Pasirinkite miestą"
-               ng-model="findCity()">
-        <button id="find" ng-click="findCity()">
-          <span class="material-icons">search</span>
-        </button>
+        <form ng-submit="findCity()">
+          <input type="text"
+                 ng-model="writtenCity"
+                 name="text"
+                 placeholder="Pasirinkite miestą"/>
+          <button id="find" ng-click="findCity()">
+            <span class="material-icons">search</span>
+          </button>
+        </form>
+
+        <!-- THIS BUTTON SHOULD WORK...... -->
         <button id="locate" ng-click="findAutomatic()">
           <span class="material-icons">my_location</span>
         </button>
       </div>
 
+
+
       <!-- SHOWS CURRENT WEATHER -->
       <div class="today-weather">
         <div class="today-main">
           <div id="city-name">{{cityName}}</div>
-          <div id="city-name">{{cityName2}}</div>
           <div id="date">{{date * 1000 | date: "yyyy-MM-dd"}}</div>
           <img ng-src={{icon}}
                id="weather-icon"/>
@@ -47,6 +54,9 @@
         </div>
       </div>
 
+
+
+      <!-- SHOWS FUTURE WEATHER -->
       <div class="future-weather">
         <div class="future-info"
              id="f-date">{{futureDate * 1000 | date: "yyyy-MM-dd"}}</div>
@@ -56,6 +66,7 @@
         <div class="future-info"><p>{{futureTemperature}} &#176;C</p></div>
       </div>
     </div>
+
 
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>

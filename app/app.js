@@ -15,8 +15,9 @@ angular.module("weatherApp", [])
             if ($scope.writtenCity !== "") {
                 $scope.selectedCity = $scope.writtenCity;
                 $scope.currentUrl = url + "q=" + $scope.selectedCity + APIkey;
+
+                $scope.getWeather();
             }
-            $scope.getWeather();
         };
 
         // CREATE API LINK WITH GEOLOCATION
@@ -27,7 +28,7 @@ angular.module("weatherApp", [])
             $scope.getWeather();
         };
 
-
+        /*
         $scope.getWeather = function() {
             $http({
                 method: "GET",
@@ -65,7 +66,7 @@ angular.module("weatherApp", [])
         };
 
         // TRIGGERS TO SHOW DEFAULT WEATHER ON PAGE LOAD
-        /*$scope.init = function() {
+        $scope.init = function() {
             $scope.getWeather();
         };*/
 
