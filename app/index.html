@@ -36,7 +36,11 @@
         </button>
       </div>
 
-
+      {{writtenCity}}
+      <br>
+      {{selectedCity}}
+      <br>
+      {{currentUrl}}
 
       <!-- SHOWS A CURRENT WEATHER -->
       <div class="today-weather">
@@ -54,31 +58,23 @@
         </div>
       </div>
 
-      <!--{{currentUrl}}-->
 
       <!-- SHOWS A WEATHER FORECAST FOR THE NEXT 5 DAYS -->
       <div class="future-container">
         <!-- DATE -->
-        <div class="future-info"
-             id="future-date"
-             ng-repeat="date in futureData">
+        <div class="future-info" id="future-date" ng-repeat="date in futureData">
           {{ date.dt * 1000 | date: "yyyy-MM-dd" }}
         </div>
         <!-- ICON -->
         <img ng-repeat="icon in futureData"
              ng-src={{iconHttp}}{{icon.weather[0].icon}}{{png}}
-             class="future-info"
-             id="future-icon"/>
+             class="future-info" id="future-icon"/>
         <!-- TEMPERATURE -->
-        <div class="future-info"
-             id="future-temp"
-             ng-repeat="temp in futureData">
+        <div class="future-info" id="future-temp" ng-repeat="temp in futureData">
           <p>{{ temp.temp.day }} &#176;C</p>
         </div>
         <!-- WIND -->
-        <div class="future-info"
-             id="future-wind"
-             ng-repeat="wind in futureData">
+        <div class="future-info" id="future-wind" ng-repeat="wind in futureData">
           <p>{{ wind.wind_speed }} m/s</p>
         </div>
 
