@@ -5,9 +5,9 @@ angular.module("weatherApp", [])
         // CITY SELECTION
         $scope.writtenCity = "";
         $scope.selectedCity = "Klaipėda";
-        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&lang=lt&appid=61831ea54b831b0ea5482f37d73f171d";
+        $scope.currentUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Klaipėda&lang=lt&appid=48507c7efbe2a4ca1b59a199ea479b46";
         var url = "https://api.openweathermap.org/data/2.5/forecast?";
-        var APIkey = "&lang=lt&appid=e8fc2f868613a27300b9402dac4a1de9";
+        var APIkey = "&lang=lt&appid=48507c7efbe2a4ca1b59a199ea479b46";
 
         // CREATE API LINK WITH BY CITY NAME
         $scope.findCity = function() {
@@ -39,6 +39,7 @@ angular.module("weatherApp", [])
                     }
                     else {
                         // CURRENT WEATHER
+                        $scope.cityName2 = $scope.selectedCity;
                         $scope.cityName = data.data.city.name;
                         $scope.date = data.data.list[0].dt;
                         $scope.temperature = Math.round(data.data.list[0].main.temp - 273.15);
@@ -64,9 +65,9 @@ angular.module("weatherApp", [])
         };
 
         // TRIGGERS TO SHOW DEFAULT WEATHER ON PAGE LOAD
-        $scope.init = function() {
+        /*$scope.init = function() {
             $scope.getWeather();
-        };
+        };*/
 
 
 
