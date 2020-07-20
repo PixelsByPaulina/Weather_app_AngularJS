@@ -10,26 +10,33 @@
     <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
 
   <body ng-controller="weatherController" data-ng-init="init()">
     <!-- Takes user input or detects city automatically -->
-    <div class="container">
-      <div class="search">
-        <input type="text"
-               placeholder="Pasirinkite miestą"
-               ng-model="findCity()">
-        <button id="find" ng-click="findCity()">
-          <span class="material-icons">search</span>
-        </button>
-        <button id="locate" ng-click="findAutomatic()">
-          <span class="material-icons">my_location</span>
-        </button>
-      </div>
+    <input type="text"
+           placeholder="Pasirinkite miestą"
+           ng-model="writtenCity">
+    <button ng-click="findCity()">Ieškoti icona</button>
+    <button ng-click="findAutomatic()">Naudoti buvimo vietą</button>
 
+    <!-- SHOWS CURRENT WEATHER -->
+    <div class="today-weather">
+      {{selectedCity}}
+      <br>
+      {{date | date : format : timezone}}
+      <br>
+      {{temperature}}
+      <br>
+      {{feelsLike}}
+      <br>
+      {{humidity}}
+      <br>
+      {{wind}}
+    </div>
+
+<<<<<<< HEAD
       <!-- SHOWS CURRENT WEATHER -->
       <div class="today-weather">
         <div class="today-main">
@@ -46,16 +53,12 @@
           <div><p>Vėjo greitis <br>{{wind}} m/s</p></div>
         </div>
       </div>
+=======
+    <div class="future-weather">
+>>>>>>> parent of 6905f62... Siek tiek isvaizdos
 
-      <div class="future-weather">
-        <div class="future-info"
-             id="f-date">{{futureDate * 1000 | date: "yyyy-MM-dd"}}</div>
-        <img ng-src={{futureIcon}}
-             class="future-info"
-             id="f-weather-icon"/>
-        <div class="future-info"><p>{{futureTemperature}} &#176;C</p></div>
-      </div>
     </div>
+
 
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>

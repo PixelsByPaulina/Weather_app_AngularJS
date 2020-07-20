@@ -1,26 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
-* {
-  box-sizing: border-box;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 body {
-  color: white;
-  background: #0f0c29;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #0f0c29, #302b63, #24243e) fixed;
-  background: linear-gradient(to top, #0f0c29, #302b63, #24243e) fixed;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-weight: 200;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: blanchedalmond;
+  font-family: "Playfair Display", serif;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none;
 }
 
+<<<<<<< HEAD
 .container {
   background-color: rgba(0, 0, 0, 0.3);
   width: 500px;
@@ -98,4 +86,6 @@ body {
   border-radius: 0px 0px 10px 10px;
 }
 
+=======
+>>>>>>> parent of 6905f62... Siek tiek isvaizdos
 /*# sourceMappingURL=style.css.map */
