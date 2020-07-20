@@ -14,7 +14,31 @@ angular.module("weatherApp", [])
             // IF INPUT FIELD IS NOT EMPTY, ACCEPT THE VALUE
             if ($scope.writtenCity !== "") {
                 $scope.selectedCity = $scope.writtenCity;
-                $scope.currentUrl = url + "q=" + $scope.selectedCity + APIkey;
+
+
+                // FUNCTION TO GET LAT&LON FROM OpenCageData - GEOCODING
+                $scope.geocodingUrl = "";
+                // URL turetu atrodyt taip:
+                // https://api.opencagedata.com/geocode/v1/json?q=Vilnius&key=de0441ef4d1f4f5497beb31ef45bd50f
+                $scope.getGeolocation = function() {
+                    $http({
+                        method: "GET",
+                        url: $scope.geocodingUrl
+                    })
+                        .then(function (data, status) {
+                            // CURRENT WEATHER
+                            //$scope.cityName = data.data.city.name;
+                            $scope.latData = data.data;
+                            $scope.lonData = data.data;
+                        })
+                        .error(function (data, status) {
+                            $scope.latData = "Error";
+                        });
+                };
+
+
+
+                //$scope.currentUrl = url + "q=" + $scope.selectedCity + APIkey;
 
                 $scope.getWeather();
             }
