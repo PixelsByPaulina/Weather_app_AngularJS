@@ -28,7 +28,7 @@ angular.module("weatherApp", [])
             $scope.getWeather();
         };
 
-        /*
+
         $scope.getWeather = function() {
             $http({
                 method: "GET",
@@ -68,7 +68,7 @@ angular.module("weatherApp", [])
         // TRIGGERS TO SHOW DEFAULT WEATHER ON PAGE LOAD
         $scope.init = function() {
             $scope.getWeather();
-        };*/
+        };
 
 
 
