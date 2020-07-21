@@ -15,9 +15,8 @@
   </head>
 
 
-
   <body ng-controller="weatherController" data-ng-init="init()">
-    <!-- TAKES USER INPUT or DETECTS CITY AUTOMATICALLY -->
+    <!-- TAKES USER INPUT AND FINDS CITY -->
     <div class="container">
       <div class="search">
         <form ng-submit="findCity()">
@@ -30,17 +29,12 @@
           </button>
         </form>
 
-        <!-- THIS BUTTON SHOULD WORK...... -->
+        <!-- DETECTS CITY AUTOMATICALLY -->
         <button id="locate" ng-click="findAutomatic()">
           <span class="material-icons">my_location</span>
         </button>
       </div>
 
-      {{writtenCity}}
-      <br>
-      {{selectedCity}}
-      <br>
-      {{currentUrl}}
 
       <!-- SHOWS A CURRENT WEATHER -->
       <div class="today-weather">
@@ -78,9 +72,7 @@
           <p>{{ wind.wind_speed }} m/s</p>
         </div>
 
-
     </div>
-
 
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
