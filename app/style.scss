@@ -127,8 +127,8 @@ body {
     padding: 0px 6px;
 
   }
-  #decription {
-    text-transform: capitalize;
+  #decription::first-letter {
+    text-transform: uppercase;
   }
 }
 

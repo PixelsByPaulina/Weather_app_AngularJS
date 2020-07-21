@@ -4,11 +4,11 @@ angular.module("weatherApp", [])
     .controller("weatherController", function($scope, $http) {
         $scope.writtenCity = "";
 
-        const weatherUrlStar = "https://api.openweathermap.org/data/2.5/onecall?";
-        const weatherUrlEnd = "&lang=lt&units=metric&appid=48507c7efbe2a4ca1b59a199ea479b46";
+        var weatherUrlStar = "https://api.openweathermap.org/data/2.5/onecall?";
+        var weatherUrlEnd = "&lang=lt&units=metric&appid=48507c7efbe2a4ca1b59a199ea479b46";
 
-        const geolocationUrlStart = "https://api.opencagedata.com/geocode/v1/json?q=";
-        const geolocationUrlEnd = "&key=de0441ef4d1f4f5497beb31ef45bd50f&pretty=1";
+        var geolocationUrlStart = "https://api.opencagedata.com/geocode/v1/json?q=";
+        var geolocationUrlEnd = "&key=de0441ef4d1f4f5497beb31ef45bd50f&pretty=1";
 
 
         // FUNCTION TO GET WEATHER USING GIVEN COORDINATES
@@ -105,6 +105,9 @@ angular.module("weatherApp", [])
 
         // TRIGGERS TO SHOW DEFAULT WEATHER ON PAGE LOAD
         $scope.init = function() {
-            $scope.getWeather();
+            //$scope.getWeather();
+            $scope.selectedCity = "Klaipėda";
+            $scope.geocodingUrl = geolocationUrlStart + $scope.selectedCity + geolocationUrlEnd;
+            $scope.getGeolocation();
         };
     });
