@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app="weatherApp" ng-cloak>
-
   <head>
     <meta charset="utf-8">
     <title>Weather App | AngularJS</title>
@@ -42,7 +41,8 @@
           <div id="city-name">{{cityName}}</div>
           <div id="date">{{date * 1000 | date: "yyyy-MM-dd"}}</div>
           <img ng-src={{icon}}
-               id="weather-icon"/>
+               id="weather-icon"
+               alt=""/>
           <div id="temperature"><p>{{temperature}} &#176;C</p></div>
         </div>
         <div class="today-info">
@@ -62,7 +62,8 @@
         <!-- ICON -->
         <img ng-repeat="icon in futureData"
              ng-src={{iconHttp}}{{icon.weather[0].icon}}{{png}}
-             class="future-info" id="future-icon"/>
+             class="future-info" id="future-icon"
+             alt=""/>
         <!-- TEMPERATURE -->
         <div class="future-info" id="future-temp" ng-repeat="temp in futureData">
           <p>{{ temp.temp.day | number:0 }} &#176;C</p>
@@ -71,6 +72,7 @@
         <div class="future-info" id="future-wind" ng-repeat="wind in futureData">
           <p>{{ wind.wind_speed }} m/s</p>
         </div>
+      </div>
 
     </div>
 
