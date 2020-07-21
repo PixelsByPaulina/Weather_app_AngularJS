@@ -65,7 +65,7 @@
              class="future-info" id="future-icon"/>
         <!-- TEMPERATURE -->
         <div class="future-info" id="future-temp" ng-repeat="temp in futureData">
-          <p>{{ temp.temp.day }} &#176;C</p>
+          <p>{{ temp.temp.day | number:0 }} &#176;C</p>
         </div>
         <!-- WIND -->
         <div class="future-info" id="future-wind" ng-repeat="wind in futureData">
